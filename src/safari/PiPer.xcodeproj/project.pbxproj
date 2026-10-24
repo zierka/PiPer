@@ -356,9 +356,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APP_BUNDLE_ID = com.zierka.PiPer;
+				APP_BUNDLE_ID = xyz.izerik.piper;
 				ARCHS = "$(ARCHS_STANDARD)";
-				APP_GROUP_ID = "$(TeamIdentifierPrefix)group.zierka.piper";
+				APP_GROUP_ID = "$(TeamIdentifierPrefix)group.izerik.piper";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -423,9 +423,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APP_BUNDLE_ID = com.zierka.PiPer;
+				APP_BUNDLE_ID = xyz.izerik.piper;
 				ARCHS = "$(ARCHS_STANDARD)";
-				APP_GROUP_ID = "$(TeamIdentifierPrefix)group.zierka.piper";
+				APP_GROUP_ID = "$(TeamIdentifierPrefix)group.izerik.piper";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
