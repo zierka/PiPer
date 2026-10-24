@@ -357,6 +357,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_BUNDLE_ID = com.amarcus.PiPer;
+				ARCHS = "$(ARCHS_STANDARD)";
 				APP_GROUP_ID = "$(TeamIdentifierPrefix)group.amarcus.piper";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -423,6 +424,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_BUNDLE_ID = com.amarcus.PiPer;
+				ARCHS = "$(ARCHS_STANDARD)";
 				APP_GROUP_ID = "$(TeamIdentifierPrefix)group.amarcus.piper";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -473,6 +475,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = Common/Defines.h;

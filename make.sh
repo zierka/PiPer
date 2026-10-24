@@ -621,6 +621,15 @@ for target in "${targets[@]}"; do
     xcodebuild -allowProvisioningUpdates -allowProvisioningDeviceRegistration -quiet -project "./out/${EXTENSION_NAME}-${target}/PiPer.xcodeproj" -scheme "PiPer" archive -archivePath "./out/${EXTENSION_NAME}-${target}.xcarchive" -configuration "${config_profile}" CODE_SIGN_STYLE="Automatic" CODE_SIGN_IDENTITY="Mac Developer" DEVELOPMENT_TEAM="${development_team}"
     xcodebuild -allowProvisioningUpdates -allowProvisioningDeviceRegistration -quiet -exportArchive -archivePath "./out/${EXTENSION_NAME}-${target}.xcarchive" -exportPath "./out/"  -exportOptionsPlist "./out/${EXTENSION_NAME}-${target}/exportOptions.plist" CODE_SIGN_STYLE="Automatic" CODE_SIGN_IDENTITY="Mac Developer" DEVELOPMENT_TEAM="${development_team}" &>/dev/null
 
+    # Warn if release binaries are not universal (Apple Silicon requires 'arm64', which needs Xcode 12 or later)
+    if [[ "${profile}" != "debug" ]]; then
+      for binary in "out/PiPer.app/Contents/MacOS/PiPer" "out/PiPer.app/Contents/PlugIns/PiPerExt.appex/Contents/MacOS/PiPerExt"; do
+        if ! lipo -archs "${binary}" 2>/dev/null | grep -q "arm64"; then
+          echo "Warning: '${binary##*/}' is missing 'arm64' architecture and will not run natively on Apple Silicon (build with Xcode 12 or later)" >&2
+        fi
+      done
+    fi
+
     # Copy archive to Xcode if needed
     if [[ "${archive_xcode}" -eq 1 ]]; then
       archive_time=$(date '+%d-%m-%Y, %H.%M')
