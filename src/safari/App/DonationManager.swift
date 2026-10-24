@@ -102,15 +102,14 @@ class DonationManager {
       guard let priceFormatter = self.priceFormatter else {
         return
       }
-      var totalDonationsDictionary = NSUbiquitousKeyValueStore.default.dictionary(forKey: DonationManager.totalDonationsKey) ?? [String:String]()
+      var totalDonationsDictionary = UserDefaults.standard.dictionary(forKey: DonationManager.totalDonationsKey) ?? [String:String]()
       let numberString = newValue.description(withLocale: [NSLocale.Key.decimalSeparator: "."])
       totalDonationsDictionary[priceFormatter.currencyCode] = numberString
-      NSUbiquitousKeyValueStore.default.set(totalDonationsDictionary, forKey: DonationManager.totalDonationsKey)
-      NSUbiquitousKeyValueStore.default.synchronize()
+      UserDefaults.standard.set(totalDonationsDictionary, forKey: DonationManager.totalDonationsKey)
     }
     get {
       guard let priceFormatter = self.priceFormatter,
-        let totalDonationsDictionary = NSUbiquitousKeyValueStore.default.dictionary(forKey: DonationManager.totalDonationsKey),
+        let totalDonationsDictionary = UserDefaults.standard.dictionary(forKey: DonationManager.totalDonationsKey),
         let numberString = totalDonationsDictionary[priceFormatter.currencyCode] as? String else {
           return NSDecimalNumber.zero
       }

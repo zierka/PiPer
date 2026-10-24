@@ -618,8 +618,8 @@ for target in "${targets[@]}"; do
 
     # Build the xcode project
     config_profile=$([[ "${profile}" == "debug" ]] && echo "Debug" || echo "Release")
-    xcodebuild -allowProvisioningUpdates -allowProvisioningDeviceRegistration -quiet -project "./out/${EXTENSION_NAME}-${target}/PiPer.xcodeproj" -scheme "PiPer" archive -archivePath "./out/${EXTENSION_NAME}-${target}.xcarchive" -configuration "${config_profile}" CODE_SIGN_STYLE="Automatic" CODE_SIGN_IDENTITY="Mac Developer" DEVELOPMENT_TEAM="${development_team}"
-    xcodebuild -allowProvisioningUpdates -allowProvisioningDeviceRegistration -quiet -exportArchive -archivePath "./out/${EXTENSION_NAME}-${target}.xcarchive" -exportPath "./out/"  -exportOptionsPlist "./out/${EXTENSION_NAME}-${target}/exportOptions.plist" CODE_SIGN_STYLE="Automatic" CODE_SIGN_IDENTITY="Mac Developer" DEVELOPMENT_TEAM="${development_team}" &>/dev/null
+    xcodebuild -allowProvisioningUpdates -allowProvisioningDeviceRegistration -quiet -project "./out/${EXTENSION_NAME}-${target}/PiPer.xcodeproj" -scheme "PiPer" archive -archivePath "./out/${EXTENSION_NAME}-${target}.xcarchive" -configuration "${config_profile}" CODE_SIGN_STYLE="Automatic" CODE_SIGN_IDENTITY="Apple Development" DEVELOPMENT_TEAM="${development_team}"
+    xcodebuild -allowProvisioningUpdates -allowProvisioningDeviceRegistration -quiet -exportArchive -archivePath "./out/${EXTENSION_NAME}-${target}.xcarchive" -exportPath "./out/"  -exportOptionsPlist "./out/${EXTENSION_NAME}-${target}/exportOptions.plist" CODE_SIGN_STYLE="Automatic" CODE_SIGN_IDENTITY="Apple Development" DEVELOPMENT_TEAM="${development_team}"
 
     # Warn if release binaries are not universal (Apple Silicon requires 'arm64', which needs Xcode 12 or later)
     if [[ "${profile}" != "debug" ]]; then
